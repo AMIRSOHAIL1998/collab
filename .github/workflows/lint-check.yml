@@ -1,0 +1,32 @@
+name: Lint Check
+on:
+  pull_request:
+    branches:
+      - staging
+      - production
+jobs:
+  lint-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install
+      - name: Run lint check on UI
+        id: ui-lint
+        run: yarn --cwd packages/ui/ lint
+        continue-on-error: false
+      - name: SetUI Variable
+        run: echo "ui_status=1" >> $GITHUB_ENV
+      - name: Run lint check on Portal
+        id: portal-lint
+        run: yarn --cwd apps/portal/ lint
+        continue-on-error: false
+      - name: SetPortal Variable
+        run: echo "portal_status=1" >> $GITHUB_ENV
+      - name: Check Lint Status and comment-Positive
+        if: ${{ needs.lint-check.steps[1].outputs.ui_lint_status == 0 && needs.lint-check.steps[2].outputs.portal_lint_status == 0 }}
+        uses: JoseThen/comment-pr@v1.1.1
+        with:
+          comment: "All Lint Checks Passed!! Ready to Merge!"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
