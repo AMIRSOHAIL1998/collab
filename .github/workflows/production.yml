@@ -39,5 +39,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_PRODUCTION_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_PRODUCTION_ACCOUNT_ID }}
+          projectName: "portal-production"
           directory: ./apps/portal/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
