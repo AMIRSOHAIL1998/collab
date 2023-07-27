@@ -6,10 +6,17 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
+    "portal#build":{
+      "cache": false,
+      "outputs": ["dist/**", ".next/**"]
+    },
     "lint": {},
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "portal#dev": {
+      "cache": false
     }
   }
 }
