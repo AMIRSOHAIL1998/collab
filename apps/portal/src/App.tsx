@@ -14,7 +14,7 @@ function App() {
       <a href="https://react.dev" target="_blank">
         <img src={reactLogo} className="logo react" alt="React logo" />
       </a>
-      <p>Teting Staging Deployment</p>
+      <p>Teting Production Deployment</p>
     </div>
   );
 }
