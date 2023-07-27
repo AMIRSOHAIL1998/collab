@@ -42,6 +42,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_STAGING_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_STAGING_ACCOUNT_ID }}
-          projectName: "portal-staging"
+          projectName: ${{ matrix.projectName }}
           directory: ./apps/portal/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
