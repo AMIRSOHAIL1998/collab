@@ -11,7 +11,7 @@ function App() {
       <a href="https://react.dev" target="_blank">
         <img src={reactLogo} className="logo react" alt="React logo" />
       </a>
-      <p>Hello Amir let's start testing for deployment</p>
+      <p>Let's Start Deployment</p>
     </div>
   );
 }
