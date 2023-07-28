@@ -28,7 +28,7 @@ jobs:
       - name: Setup node env 🏗
         uses: actions/setup-node@v3
         with:
-          node-version: lts/gallium
+          node-version: 18.16.1
           cache: "yarn"
 
       - name: Install dependencies 👨🏻‍💻
@@ -42,6 +42,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_PRODUCTION_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_PRODUCTION_ACCOUNT_ID }}
-          projectName: "portal-production"
+          projectName: ${{ matrix.projectName }}
           directory: ./apps/portal/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
